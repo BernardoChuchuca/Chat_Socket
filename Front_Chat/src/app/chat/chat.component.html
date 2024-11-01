@@ -1,0 +1,118 @@
+<style>
+  /* Contenedor principal del chat */
+  .header {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      padding: 15px;
+      background-color: #5c041a;
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  .chat-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+
+  /* Contenedor de los mensajes */
+  .messages-container {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #e8e8e8;
+  }
+
+  /* Estilo de los mensajes */
+  .message {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  /* Burbuja del mensaje */
+  .message-bubble {
+    padding: 10px;
+    border-radius: 12px;
+    max-width: 80%;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+
+  /* Mensaje enviado */
+  .sent-message {
+    background-color: #5c041a;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+  }
+
+  /* Mensaje recibido */
+  .received-message {
+    background-color: #e0e0e0;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+  }
+
+  /* Contenedor de entrada */
+  .input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+  }
+
+  /* Campo de entrada de texto */
+  .input-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  /* Botón de envío */
+  .input-container button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #5c041a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  /* Efecto al pasar el mouse sobre el botón */
+  .input-container button:hover {
+    background-color: #f65e63;
+  }
+</style>
+<div class="header">Chat</div>
+<div class="chat-container">
+  <div class="messages-container">
+    <!-- Iterar sobre los mensajes y mostrarlos -->
+    <div class="message" *ngFor="let message of messages">
+      <!-- Aplicar estilos diferentes para los mensajes enviados y recibidos -->
+      <div class="message-bubble" [ngClass]="{ 'sent-message': message.isLocal, 'received-message': !message.isLocal }">
+        {{ message.text }}
+      </div>
+    </div>
+  </div>
+  <div class="input-container">
+    <!-- Input para escribir nuevos mensajes -->
+    <input type="text" [(ngModel)]="newMessage" placeholder="Escribe un mensaje...">
+    <!-- Botón para enviar mensajes -->
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+</div>
