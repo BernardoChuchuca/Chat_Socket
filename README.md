@@ -7,19 +7,19 @@ Para poder ejecutar nuestra imagen con la aplicacion deberemos realizar la docum
 ```bash
 docker run -d --name chat_f -p 3000:3000 bnachoxt/chat_socket
 ```
-![Imagen de prueba](https://imgur.com/fRVuorJ.jpg) 
+![Imagen de prueba](https://imgur.com/Cz2PXbn.jpg) 
 
 2. Para poder si el contenedor inicio realizaremos el siguiente comando:
 ```bash
 docker ps
 ```
-![Descripción de la imagen](https://imgur.com/20vy80B.jpg)
+![Descripción de la imagen](https://imgur.com/ihITfCO.jpg)
 
 3. Luego si queremos ver el log de nuestro contenedor deberemos copiar el id del contenedor:
 ```bash
 docker logs <id-contenedor>
 ```
-![Imagen de prueba](https://imgur.com/akisZ1v.jpg)
+![Imagen de prueba](https://imgur.com/6DGiyXW.jpg)
 
 4. Ingresaremos a la direccion donde se alojo nuestro contenedor:
 ```bash
